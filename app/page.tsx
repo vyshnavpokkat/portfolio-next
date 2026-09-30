@@ -43,9 +43,10 @@ export default function Home() {
               </span>
             </h1>
             <p className="hero-intro">
-              I’m <strong>{p.name}</strong>. I build web applications that bring
-              clarity to complex systems — with care for the details that make
-              them feel simple.
+              I’m <strong>{p.name}</strong>, a full-stack developer with a
+              frontend-first approach. I turn complex product requirements into
+              fast, intuitive web experiences, supported by hands-on work across
+              APIs, databases, payments and production infrastructure.
             </p>
             <div className="hero-actions">
               <a className="button" href="#work">
@@ -54,6 +55,19 @@ export default function Home() {
               <a className="text-link" href="/Vyshnav-P-Resume.docx" download>
                 Download CV <span aria-hidden="true">↓</span>
               </a>
+            </div>
+            <div className="hero-links" aria-label="Professional links">
+              <a href={`mailto:${p.email}`}>Email</a>
+              {p.socials.map((social) => (
+                <a
+                  key={social.label}
+                  href={social.url}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {social.label} <span aria-hidden="true">↗</span>
+                </a>
+              ))}
             </div>
             <div className="location">
               <span className="location-dot" />
@@ -73,7 +87,7 @@ export default function Home() {
             </div>
             <figcaption className="portrait-caption">
               <InkArrow />
-              <span className="handwritten">the person behind the pixels</span>
+              <span className="handwritten">where logic meets a human touch</span>
             </figcaption>
             <span className="portrait-index">FIG. 01 — A WORK IN PROGRESS</span>
           </figure>
@@ -119,6 +133,14 @@ export default function Home() {
                   <dd>{p.location}</dd>
                 </div>
               </dl>
+              <div className="focus-grid">
+                {p.focusAreas.map((area) => (
+                  <article key={area.title}>
+                    <h3>{area.title}</h3>
+                    <p>{area.text}</p>
+                  </article>
+                ))}
+              </div>
             </div>
           </div>
         </section>
@@ -130,7 +152,13 @@ export default function Home() {
             note="four projects, many moving parts"
           />
           <div className="projects">
-            {p.projects.map((project, i) => (
+            {p.projects.map((project, i) => {
+              const projectTarget = project.url || `#${project.id}-details`;
+              const externalLinkProps = project.url
+                ? { target: "_blank", rel: "noreferrer" }
+                : {};
+
+              return (
               <article className="project" key={project.id} id={project.id}>
                 <div className="project-copy">
                   <p className="eyebrow project-meta">
@@ -138,25 +166,41 @@ export default function Home() {
                     <span> / </span>
                     {project.category}
                   </p>
-                  <h3>{project.name}</h3>
+                  <h3>
+                    <a href={projectTarget} {...externalLinkProps}>
+                      {project.name}
+                      <span className="project-link-arrow" aria-hidden="true">
+                        ↗
+                      </span>
+                    </a>
+                  </h3>
                   <p className="project-subtitle">{project.subtitle}</p>
-                  <p>{project.description}</p>
-                  <ul className="tech-list" aria-label="Technologies">
-                    {project.tech.map((tech) => (
-                      <li key={tech}>{tech}</li>
-                    ))}
-                  </ul>
-                  <details>
-                    <summary>
-                      My contribution{" "}
-                      <span className="details-icon" aria-hidden="true" />
-                    </summary>
+                  <div className="project-detail" id={`${project.id}-details`}>
+                    <span className="project-label">Overview</span>
+                    <p>{project.description}</p>
+                  </div>
+                  <div className="project-detail">
+                    <span className="project-label">Role & contribution</span>
                     <ul>
                       {project.contributions.map((item) => (
                         <li key={item}>{item}</li>
                       ))}
                     </ul>
-                  </details>
+                  </div>
+                  <div className="project-detail">
+                    <span className="project-label">Important features</span>
+                    <ul className="feature-list">
+                      {project.features.map((feature) => (
+                        <li key={feature}>{feature}</li>
+                      ))}
+                    </ul>
+                  </div>
+                  <span className="project-label">Technologies</span>
+                  <ul className="tech-list" aria-label="Technologies">
+                    {project.tech.map((tech) => (
+                      <li key={tech}>{tech}</li>
+                    ))}
+                  </ul>
                   {project.url && (
                     <a
                       className="text-link"
@@ -168,17 +212,25 @@ export default function Home() {
                     </a>
                   )}
                 </div>
-                <figure className="project-visual">
-                  <span className="diagram-label">
-                    CONCEPT NOTES / 0{i + 1}
-                  </span>
-                  <ProjectSketch type={project.diagram} />
-                  <figcaption className="handwritten">
-                    {project.note}
-                  </figcaption>
-                </figure>
+                <a
+                  className="project-visual-link"
+                  href={projectTarget}
+                  aria-label={`${project.url ? "Visit" : "Read details for"} ${project.name}`}
+                  {...externalLinkProps}
+                >
+                  <figure className="project-visual">
+                    <span className="diagram-label">
+                      CONCEPT NOTES / 0{i + 1}
+                    </span>
+                    <ProjectSketch type={project.diagram} />
+                    <figcaption className="handwritten">
+                      {project.note}
+                    </figcaption>
+                  </figure>
+                </a>
               </article>
-            ))}
+              );
+            })}
           </div>
         </section>
         <section id="experience" className="section">
@@ -230,8 +282,8 @@ export default function Home() {
           <p className="backend-note">
             <span className="handwritten">Beyond the interface ↗</span> Hands-on
             with service/repository architecture, DTO and service-layer logic,
-            uptime aggregation, and mining service integrations including
-            NICEHASH and ANTPOOL.
+            REST API creation, SQL, Redis, Docker, uptime aggregation, PSP
+            integrations and mining services including NICEHASH and ANTPOOL.
           </p>
         </section>
         <section id="education" className="section education-section">
@@ -294,7 +346,19 @@ export default function Home() {
         <span>
           © {new Date().getFullYear()} {p.name}
         </span>
-        <span>Made with care, in Kerala.</span>
+        <div className="footer-links">
+          <a href={`mailto:${p.email}`}>Email</a>
+          {p.socials.map((social) => (
+            <a
+              key={social.label}
+              href={social.url}
+              target="_blank"
+              rel="noreferrer"
+            >
+              {social.label}
+            </a>
+          ))}
+        </div>
         <a href="#top">Back to top ↑</a>
       </footer>
     </>

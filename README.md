@@ -4,7 +4,7 @@ A personal portfolio built as a quiet editorial sketchbook: warm paper, blue ink
 
 ## Stack
 
-Next.js App Router, React, TypeScript, Tailwind CSS v4, and custom CSS. All page components render on the server; project contribution disclosures use native HTML. No animation or icon libraries. The portrait is a compressed WebP served through Next.js image optimization. System serif and sans-serif fonts keep the site independent of external font requests.
+Next.js App Router, React, TypeScript, Tailwind CSS v4, and custom CSS. The page is server-rendered apart from a lightweight first-load transition. No animation or icon libraries are used. The portrait is a compressed WebP served through Next.js image optimization. System serif and sans-serif fonts keep the site independent of external font requests.
 
 ## Getting started
 
@@ -27,9 +27,9 @@ Production builds use Next.js’s supported Webpack option to avoid a local Turb
 
 ## Content
 
-Edit `data/portfolio.ts` for the name, bio, projects, roles, skills, education, email, and social URLs. Project contributions expand with a keyboard-accessible disclosure. Optional project URLs appear only when supplied. Diagrams are conceptual illustrations, not product screenshots.
+Edit `data/portfolio.ts` for the name, bio, projects, roles, skills, education, email, and social URLs. Each project has structured overview, contribution, feature and technology fields. Optional live URLs are shown only when supplied. Diagrams are conceptual illustrations, not product screenshots.
 
-The supplied CV contains no actual contact addresses or project links. At the owner’s request, `vyshnav@example.com` is a **dummy email**. Replace it before publishing. Social links remain empty until real URLs are available; add entries such as `{ label: 'GitHub', url: 'https://github.com/YOUR_USERNAME' }` to `socials`. Do not publish unverified professional details.
+The public email, LinkedIn and GitHub links are maintained in `data/portfolio.ts`. Segments and SegPool include verified live-site links; internal or unavailable project links stay local to their case-study entry.
 
 The download at `public/Vyshnav-P-Resume.docx` is the original supplied document, which also contains contact placeholders. Replace it with your final public CV when ready. The university name is omitted because it was absent from the source CV.
 
@@ -48,7 +48,7 @@ The mobile composition places the portrait between the headline and introduction
 
 ## Deploy to Vercel
 
-1. Replace the dummy email, add verified social links, and update the downloadable CV.
+1. Update the downloadable CV with its final public contact details.
 2. Push the project to a Git repository.
 3. Import that repository into Vercel and select the Next.js framework preset.
 4. Set `NEXT_PUBLIC_SITE_URL` to the complete production origin, such as `https://your-domain.com`, for absolute Open Graph URLs.

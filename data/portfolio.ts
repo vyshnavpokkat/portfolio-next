@@ -1,58 +1,92 @@
 export const portfolio = {
   name: "Vyshnav P",
-  role: "Software Engineer · Frontend Development",
+  role: "Full-Stack Developer · Frontend Focus",
   location: "Kerala, India",
-  email: "vyshnav@example.com", // Demo only: replace before publishing.
-  socials: [] as { label: string; url: string }[],
+  email: "vyshnavpkt22@gmail.com",
+  socials: [
+    {
+      label: "LinkedIn",
+      url: "https://www.linkedin.com/in/vyshnav-pokkat-0a9525246/",
+    },
+    { label: "GitHub", url: "https://github.com/vyshnavpokkat" },
+  ],
   description:
-    "Frontend-focused software engineer in Kerala, India. Building thoughtful web applications with React, Next.js and TypeScript, from real-time mining dashboards to consumer products.",
+    "Full-stack developer with a strong frontend focus, building modern web applications with React, Next.js, TypeScript, Java and Spring Boot.",
   about:
-    "I’m a frontend-focused software engineer with 3+ years of experience turning complex requirements into clear, responsive web applications. My work spans customer-facing products, operational dashboards and the systems that connect them.",
+    "I’m a full-stack developer with 3+ years of experience and a strong focus on frontend engineering. I build modern, responsive applications with JavaScript, TypeScript, React and Next.js, while also contributing to backend APIs, business logic and data flows.",
   aboutDetail:
-    "Currently at AdPumb / Segments Cloud Computing LLC, I work on crypto mining platforms and real-time ASIC monitoring. Alongside the frontend, I bring hands-on experience with Java, Spring Boot and Next.js server-side development.",
+    "My current work is in the crypto and blockchain domain, covering mining platforms, real-time ASIC monitoring, PSP integrations and payment-related workflows. On the backend, I work with Java, Spring Boot, REST APIs, SQL, Redis and Docker.",
+  focusAreas: [
+    {
+      title: "Blockchain & payments",
+      text: "Professional experience with crypto-mining systems, blockchain-related concepts, PSP integrations, wallets, top-ups, debits and payment business logic.",
+    },
+    {
+      title: "AI-assisted engineering",
+      text: "I use modern AI development tools for coding, debugging, refactoring, understanding unfamiliar code, research and faster technical iteration.",
+    },
+  ],
   projects: [
     {
       id: "segments",
       name: "Segments",
-      category: "Commerce & infrastructure",
-      subtitle: "A frontend for the mining ecosystem.",
+      category: "Customer mining platform",
+      subtitle: "One place for customers to follow daily mining operations.",
       description:
-        "A customer-facing platform bringing ASIC hardware, hosting, cloud mining and crypto-related services together.",
+        "The company’s public website and customer platform, combining product and service information with a secure dashboard for tracking day-to-day mining operations, reports and payments.",
       contributions: [
-        "Develop and maintain hardware, hosting, wallet, top-up, debit and payment flows.",
-        "Connect mining, hardware and payment data to responsive production interfaces through backend APIs.",
+        "Build and maintain responsive company pages and customer dashboard experiences for mining activity, operational reporting and payments.",
+        "Support backend development by creating and integrating APIs and contributing to PSP integrations and payment-related business logic.",
+      ],
+      features: [
+        "Daily mining operations dashboard",
+        "Operational and financial reports",
+        "Payments, wallet and top-up workflows",
+        "ASIC hardware and hosting information",
       ],
       tech: ["React", "Next.js", "TypeScript", "REST APIs", "Docker"],
       diagram: "ecosystem",
       note: "Connecting the moving parts",
-      url: "",
+      url: "https://www.segments.ae/",
     },
     {
       id: "segpool",
       name: "SegPool",
-      category: "Data & visualization",
-      subtitle: "Making mining performance readable.",
+      category: "Mining pool & live data",
+      subtitle: "Live pool performance, made readable.",
       description:
-        "A mining pool platform for understanding hashrate, miners, workers and pool performance across supported networks.",
+        "A mining-pool platform that gives users live visibility into mining activity, including hashrate, miners, workers and pool performance across supported networks.",
       contributions: [
-        "Build dashboards, tables and filters for hashrate, miner, worker and pool data.",
-        "Integrate backend APIs and maintain production mining features.",
+        "Build real-time frontend dashboards, tables and filters that turn continuously changing mining data into clear, usable views.",
+        "Create and integrate REST APIs while supporting backend logic, data handling and production mining features.",
+      ],
+      features: [
+        "Live hashrate and worker monitoring",
+        "Miner and pool performance data",
+        "Data-rich filtering and tables",
+        "Network-aware mining dashboards",
       ],
       tech: ["React", "TypeScript", "Tailwind CSS", "Ant Design", "REST APIs"],
       diagram: "pool",
       note: "Many workers. One clear view.",
-      url: "",
+      url: "https://www.segpool.com/",
     },
     {
       id: "cminer",
       name: "CMiner",
-      category: "Real-time operations",
-      subtitle: "Complex infrastructure. Clear signals.",
+      category: "Internal mining operations",
+      subtitle: "The company’s operational view of its mining fleet.",
       description:
-        "An internal operations platform for monitoring and managing ASIC mining infrastructure in real time.",
+        "An internal company tool used to track active mining machines, daily operational reports, mining-hardware health, customer information and the infrastructure behind hosted mining operations.",
       contributions: [
-        "Built dashboards for miner status, hashrate, power, revenue and online/offline monitoring.",
-        "Developed miner inventory, pool configuration, hosting-cost, hash-billing and machine settings interfaces.",
+        "Build operations dashboards for active machine status, hardware health, hashrate, power, revenue and daily reporting.",
+        "Develop frontend workflows and support APIs for customer records, miner inventory, pool configuration, hosting costs, hash billing and machine settings.",
+      ],
+      features: [
+        "Active-machine and hardware-health monitoring",
+        "Daily operational and performance reports",
+        "Customer, inventory and machine management",
+        "Pool configuration, hosting and hash billing",
       ],
       tech: ["Next.js", "TypeScript", "MQTT", "EMQX", "WebSockets", "Recharts"],
       diagram: "monitor",
@@ -70,6 +104,12 @@ export const portfolio = {
         "Developed voucher, wallet-history and transaction interfaces with filtering and infinite scrolling.",
         "Built responsive flight and hotel flows integrated with backend APIs.",
       ],
+      features: [
+        "Voucher and rewards journeys",
+        "Wallet and transaction history",
+        "Flight and hotel booking flows",
+        "Filtering, pagination and infinite scroll",
+      ],
       tech: ["React", "JavaScript", "Redux", "REST APIs", "Axios"],
       diagram: "journey",
       note: "A smoother path from A to B",
@@ -83,9 +123,9 @@ export const portfolio = {
       role: "Software Engineer / Frontend Developer",
       location: "Kerala, India · Full-time",
       description:
-        "Develop and maintain React, Next.js and TypeScript applications across Segments, SegPool and CMiner. Build customer and internal dashboards for mining operations, hosting, billing and revenue.",
+        "Develop and maintain React, Next.js and TypeScript applications across the Segments customer platform, the SegPool live mining-pool product and the internal CMiner operations system.",
       detail:
-        "Integrate REST APIs and live data with MQTT, EMQX and WebSockets; collaborate with Java and Spring Boot services and resolve production issues.",
+        "Build dashboards for daily operations, reports, payments, live mining data, active-machine status, hardware health and customer records. Integrate REST APIs and live data with MQTT, EMQX and WebSockets; support Java and Spring Boot APIs, PSP integrations and payment business logic.",
     },
     {
       date: "Apr 2023 — Feb 2024",
@@ -112,7 +152,7 @@ export const portfolio = {
     {
       title: "APIs & backend",
       items:
-        "REST APIs, Axios, Fetch API, JSON, Java, Spring Boot, Next.js server-side development",
+        "Java, Spring Boot, REST APIs, Axios, Fetch API, JSON, Next.js server-side development",
     },
     {
       title: "Data & infrastructure",
@@ -126,7 +166,12 @@ export const portfolio = {
     {
       title: "Visualization & tools",
       items:
-        "Recharts, Chart.js, ExcelJS, XLSX, Git, GitHub / GitLab, npm, Yarn, Gradle, VS Code",
+        "Recharts, Chart.js, ExcelJS, XLSX, Git, GitHub / GitLab, npm, Yarn and Gradle",
+    },
+    {
+      title: "Development workflow",
+      items:
+        "IntelliJ IDEA, Visual Studio Code and AI-assisted tools for coding, debugging, refactoring, code comprehension, research and development",
     },
   ],
   education: {

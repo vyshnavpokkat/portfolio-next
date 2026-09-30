@@ -1,8 +1,9 @@
 import type { Metadata, Viewport } from "next";
 import { portfolio } from "@/data/portfolio";
+import { InitialLoader } from "@/components/initial-loader";
 import "./globals.css";
 export const metadata: Metadata = {
-  title: `${portfolio.name} — Software Engineer & Frontend Developer`,
+  title: `${portfolio.name} — Full-Stack Developer`,
   description: portfolio.description,
   applicationName: `${portfolio.name} Portfolio`,
   openGraph: {
@@ -15,13 +16,13 @@ export const metadata: Metadata = {
         url: "/opengraph-image",
         width: 1200,
         height: 630,
-        alt: `${portfolio.name} — Software Engineer`,
+        alt: `${portfolio.name} — Full-Stack Developer`,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: `${portfolio.name} — Software Engineer`,
+    title: `${portfolio.name} — Full-Stack Developer`,
     description: portfolio.description,
   },
   robots: { index: true, follow: true },
@@ -38,7 +39,10 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body id="top">{children}</body>
+      <body id="top">
+        <InitialLoader />
+        {children}
+      </body>
     </html>
   );
 }

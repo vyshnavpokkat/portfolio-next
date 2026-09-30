@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 import { portfolio } from "@/data/portfolio";
-export const alt = `${portfolio.name} — Software Engineer`;
+export const alt = `${portfolio.name} — Full-Stack Developer`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 export default function Image() {
@@ -33,7 +33,7 @@ export default function Image() {
       </div>
       <div
         style={{ fontSize: 22, marginTop: 48 }}
-      >{`Frontend development · ${portfolio.location}`}</div>
+      >{`Full-stack development · Frontend focus · ${portfolio.location}`}</div>
     </div>,
     size,
   );
