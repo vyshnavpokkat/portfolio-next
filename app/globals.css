@@ -471,6 +471,24 @@ nav a:last-child {
   font-size: 11px;
   line-height: 1.75;
 }
+
+/* Keep the phone layout intact while giving the About section a cleaner,
+   more balanced reading width on larger screens. */
+@media (min-width: 701px) {
+  .about-grid {
+    grid-template-columns: minmax(0, 1fr);
+    max-width: 1180px;
+    margin: 0 auto;
+  }
+
+  .about-grid .margin-note {
+    display: none;
+  }
+
+  .about-copy > p {
+    max-width: 980px;
+  }
+}
 .project {
   display: grid;
   grid-template-columns: 1fr 1fr;
